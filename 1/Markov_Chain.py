@@ -58,7 +58,7 @@ def index_to_words(index: int, base: int, length: int, unique_words: Dict[str, i
 
     return [unique_words_list[num] for num in numbers]
 
-    def remove_unnecessary_characters(text: str):
+def remove_unnecessary_characters(text: str):
     """
         Removes unnecessary characters from the given text and converts it to lowercase.
 
@@ -75,7 +75,7 @@ def index_to_words(index: int, base: int, length: int, unique_words: Dict[str, i
 
     return text
 
-    def generate_n_grams(text: str, n: int):
+def generate_n_grams(text: str, n: int):
     """
         Generate n-grams from the given text.
 
@@ -93,7 +93,7 @@ def index_to_words(index: int, base: int, length: int, unique_words: Dict[str, i
 
     return n_grams
 
-    def compute_transition_matrix(n_grams: List[Tuple[str]]):
+def compute_transition_matrix(n_grams: List[Tuple[str]]):
     """
         Computes the transition matrix and unique states for a given list of n-grams.
 
@@ -193,7 +193,7 @@ def index_to_words(index: int, base: int, length: int, unique_words: Dict[str, i
 
     return transition_matrix, unique_words
 
-    def generate(unique_words: Dict[str, int], transition_matrix: np.ndarray, start_from: Union[str, List[str]], n: int, length: int=10):
+def generate(unique_words: Dict[str, int], transition_matrix: np.ndarray, start_from: Union[str, List[str]], n: int, length: int=10):
     """
         Generate text using a Markov chain model.
 
@@ -243,7 +243,7 @@ def index_to_words(index: int, base: int, length: int, unique_words: Dict[str, i
     # return generated string
     return ' '.join(generated_words)
 
-    # [TODO] Change the text below and try different values of n
+# [TODO] Change the text below and try different values of n
 text = "Linear Algebra presents a real challenge. While I anticipated the complexity of the topics, I didn’t expect it to be this difficult to grasp. The concepts, though powerful and foundational, often feel overwhelming. Despite understanding their importance, translating them into something intuitive seems much harder than I imagined."
 n = 4
 
@@ -278,7 +278,7 @@ for idx, (start_from, length) in enumerate(experiments, 1):
     # Print out the generated text
     print("#{} (length={}): {}".format(idx, length, generated_text))
 
-    def compute_stationary_distribution(transition_matrix: np.ndarray):
+def compute_stationary_distribution(transition_matrix: np.ndarray):
     """
         Compute the stationary distribution of a Markov chain.
 
@@ -311,7 +311,7 @@ for idx, (start_from, length) in enumerate(experiments, 1):
     stationary_distribution = stationary_distribution / stationary_distribution.sum()
     return stationary_distribution
 
-    # Compute the stationary distribution for the transition matrix obtained from the previous problem
+# Compute the stationary distribution for the transition matrix obtained from the previous problem
 stationary_distribution = compute_stationary_distribution(transition_matrix)
 
 # Convert the stationary distribution to float16 to prevent something like -1.2345678e-16 but it is actually 0
